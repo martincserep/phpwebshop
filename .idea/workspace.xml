@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51d6243d-f73f-48df-917f-fd36e65f9193" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/colors/colors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/colors/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/products/category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/products/create_product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/products/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/products/product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +40,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/products" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ecom\admin\products" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\ecom" />
+      <recent name="C:\xampp\htdocs\ecom\css\Resources\colors" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -56,7 +73,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578503397161</updated>
-      <workItem from="1578503398367" duration="1970000" />
+      <workItem from="1578503398367" duration="8538000" />
+      <workItem from="1578548666019" duration="1005000" />
     </task>
     <servers />
   </component>
@@ -64,9 +82,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="801" y="434" key="NewPhpFileDialog" timestamp="1578507980079">
+    <state x="774" y="231" key="CommitChangelistDialog2" timestamp="1578519977032">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="801" y="434" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1578507980079" />
+    <state x="774" y="231" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1578519977032" />
+    <state x="801" y="434" key="NewPhpFileDialog" timestamp="1578518796035">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="801" y="434" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1578518796035" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1578548666093">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1578548666093" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1578548743523">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1280.984@0.0.1920.1040" timestamp="1578548743523" />
   </component>
 </project>
