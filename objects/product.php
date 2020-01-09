@@ -182,7 +182,8 @@ class Product{
                 name = :name,
                 price = :price,
                 description = :description,
-                category_id  = :category_id
+                category_id  = :category_id,
+                image=:image
             WHERE
                 id = :id";
 
@@ -194,6 +195,7 @@ class Product{
         $this->description=htmlspecialchars(strip_tags($this->description));
         $this->category_id=htmlspecialchars(strip_tags($this->category_id));
         $this->id=htmlspecialchars(strip_tags($this->id));
+        $this->image=htmlspecialchars(strip_tags($this->image));
 
         // bind parameters
         $stmt->bindParam(':name', $this->name);
@@ -201,6 +203,8 @@ class Product{
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':category_id', $this->category_id);
         $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(":image", $this->image);
+        $stmt->bindParam(":image", $this->image);
 
         // execute the query
         if($stmt->execute()){
