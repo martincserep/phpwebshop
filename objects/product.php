@@ -10,8 +10,8 @@ class Product{
     public $name;
     public $price;
     public $description;
-    public $image;
     public $category_id;
+    public $image;
     public $timestamp;
 
     public function __construct($db){
