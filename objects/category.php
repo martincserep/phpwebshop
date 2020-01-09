@@ -41,6 +41,6 @@ class Category{
 
         $this->name = $row['name'];
     }
-
 }
+
 ?>

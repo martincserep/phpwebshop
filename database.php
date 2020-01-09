@@ -1,12 +1,14 @@
 <?php
 class Database{
 
-    private $host = "127.0.0.1";
+    // specify your own database credentials
+    private $host = "localhost";
     private $db_name = "ecom";
     private $username = "root";
     private $password = "";
     public $conn;
 
+    // get the database connection
     public function getConnection(){
 
         $this->conn = null;
