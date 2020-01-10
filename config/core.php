@@ -5,10 +5,10 @@ error_reporting(E_ALL);
 // start php session
 session_start();
 
-$context_path = "/ecom/";
+$context_path = "/phpwebshop/";
 $home_url="http://localhost" . $context_path;
 
-//include_once __DIR__ . "/../auth/login_checker.php";
+include_once __DIR__ . "/../auth/login_checker.php";
 
 // set your default time-zone
 date_default_timezone_set('Europe/Budapest');

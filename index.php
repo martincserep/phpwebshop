@@ -1,34 +1,59 @@
 <?php
-// core.php holds pagination variables
-include_once 'config/core.php';
+// core configuration
+include_once "config/core.php";
+// set page title
+$page_title="Boski";
+// include page header HTML
 
-// include database and object files
-include_once 'config/database.php';
-include_once 'objects/product.php';
-include_once 'objects/category.php';
-
-// instantiate database and product object
-$database = new Database();
-$db = $database->getConnection();
-
-$product = new Product($db);
-$category = new Category($db);
-
-$page_title = "Read Products";
 include_once "header.php";
 
-// query products
-$stmt = $product->readAll($from_record_num, $records_per_page);
+$category = isset($_GET['category']) ? ($_GET['category']) : "";
 
-// specify the page where paging is used
-$page_url = "index.php?";
+$action = isset($_GET['action']) ? $_GET['action'] : "";
+echo "<div class='col-md-12'>";
 
-// count total rows - used for pagination
-$total_rows=$product->countAll();
+// alert if item added to cart
+if($action=='added'){?>
+    <script type="text/javascript">
+        swal({title:'Success', text:'This item has been added to Cart!', type:'success', timer:1700});
+    </script> <?php
+}
 
-// read_template.php controls how the product list will be rendered
-include_once "read_template.php";
+// user details updated
+if ($action == 'updated') {?>
+    <script type="text/javascript">
+        swal({title: 'Updated', text: 'Your details updated!', type: 'success', timer: 2200});
+    </script> <?php
+}
 
-// layout_footer.php holds our javascript and closing html tags
-include_once "footer.php";
-?>
+if($action=='cart_empty'){?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'Your cart is Empty!', type: 'info', timer: 1500});
+    </script><?php
+}
+
+if ($action == 'removed') { ?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
+    </script> <?php
+}
+
+// alert if item already added to cart
+if($action=='exists'){?>
+    <script type="text/javascript">
+        swal({title:'Warning', text:'This item already exists in your Cart!', type:'warning', timer:1700});
+    </script> <?php
+}
+
+// alert if items purchased
+if($action=='purchased') {?>
+    <script type="text/javascript">
+        swal({title:'Success', text:'Thank you for your purchase! You can lay down, your products will arrive soon!', type:'success', timer:3000});
+    </script> <?php
+
+}
+include_once "all_products.php";
+echo "</div>";
+
+// footer HTML and JavaScript codes
+include 'footer.php';
