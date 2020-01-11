@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Jan 11. 00:08
+-- Létrehozás ideje: 2020. Jan 11. 02:47
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.1
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `ecom`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `cart_item` text NOT NULL,
+  `status` text DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -52,6 +66,59 @@ INSERT INTO `products` (`product_id`, `product_name`, `specification`, `descript
 (8, 'Apple Watch Series 5 - Aluminium', 'specification', 'There’s an Apple Watch for everyone.', 399, 10, '', 'watch'),
 (9, 'Apple Watch Series 5 - Stainless', 'specification', 'For the sophisticated.', 699, 10, '', 'watch'),
 (10, 'MacBook Pro 16 inch', 'specification', 'The best for the brightest.', 2399, 10, '', 'macbook');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(32) NOT NULL,
+  `lastname` varchar(32) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `contact_number` varchar(64) NOT NULL,
+  `address` text NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `access_level` varchar(16) NOT NULL,
+  `access_code` text NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=pending,1=confirmed',
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='admin and customer users';
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
+--
+-- A tábla indexei `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- A tábla indexei `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A kiírt táblák AUTO_INCREMENT értéke
+--
+
+--
+-- AUTO_INCREMENT a táblához `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT a táblához `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
