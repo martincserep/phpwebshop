@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2020. Jan 11. 02:47
+-- Létrehozás ideje: 2020. Jan 11. 03:12
 -- Kiszolgáló verziója: 10.4.11-MariaDB
 -- PHP verzió: 7.4.1
 
@@ -80,13 +80,20 @@ CREATE TABLE `users` (
   `email` varchar(64) NOT NULL,
   `contact_number` varchar(64) NOT NULL,
   `address` text NOT NULL,
-  `password` varchar(512) NOT NULL,
+  `password` varchar(999) NOT NULL,
   `access_level` varchar(16) NOT NULL,
-  `access_code` text NOT NULL,
+  `access_code` text DEFAULT NULL,
   `status` int(11) NOT NULL COMMENT '0=pending,1=confirmed',
   `created` datetime NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='admin and customer users';
+
+--
+-- A tábla adatainak kiíratása `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `contact_number`, `address`, `password`, `access_level`, `access_code`, `status`, `created`, `modified`) VALUES
+(1, 'Martin', 'Cserép', 'martincserep1@gmail.com', '36704159966', 'afsfasdf', '$2y$10$S700vYeRdQ2UbgOXj6a77.HESv4Wtu12f9s4jWbEyzFioHvii5C6y', 'Admin', NULL, 1, '2020-01-11 03:12:02', '2020-01-11 02:12:35');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -118,7 +125,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
