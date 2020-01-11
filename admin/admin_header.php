@@ -25,7 +25,7 @@
 
 <?php
 // include top navigation bar
-include_once "navigation.php";
+include_once "admin_navigation.php";
 ?>
 
 <!-- container -->
