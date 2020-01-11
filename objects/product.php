@@ -5,7 +5,6 @@ class product {
 
     private $id;
     private $name;
-    private $brand;
     private $specification;
     private $description;
     private $price;
@@ -13,12 +12,11 @@ class product {
     private $image;
     private $category;
 
-    public function __construct($id, $name, $brand, $specification, $description,
+    public function __construct($id, $name, $specification, $description,
                                 $price, $quantity, $image, $category)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->brand = $brand;
         $this->specification = $specification;
         $this->description = $description;
         $this->price = $price;

@@ -13,13 +13,13 @@ class SimpleProductServices implements ProductServices
         $this->productDao = new DatabaseProductDao();
     }
 
-    public function CreateProduct($name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    public function CreateProduct($name, $specification, $description, $price, $quantity, $image, $category)
     {
         $isValid = true;
 
         // check price and quantity inputs
         if ($price > 0 && $quantity >= 0) {
-            $this->productDao->Create($name, $brand, $specification, $description, $price, $quantity, $image, $category);
+            $this->productDao->Create($name, $specification, $description, $price, $quantity, $image, $category);
         } else {
             $isValid = false;
         }
@@ -67,12 +67,12 @@ class SimpleProductServices implements ProductServices
         return $this->productDao->GetAllCategories();
     }
 
-    public function EditProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    public function EditProduct($product_id, $name, $specification, $description, $price, $quantity, $image, $category)
     {
         $isValid = true;
         // check price and quantity inputs
         if ($price > 0 && $quantity >= 0) {
-            $this->productDao->UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category);
+            $this->productDao->UpdateProduct($product_id, $name, $specification, $description, $price, $quantity, $image, $category);
         } else {
             $isValid = false;
         }

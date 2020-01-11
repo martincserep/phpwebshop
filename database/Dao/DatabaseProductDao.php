@@ -12,15 +12,14 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         $this->conn = parent::getConnection();
     }
 
-    public function Create($name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    public function Create($name, $specification, $description, $price, $quantity, $image, $category)
     {
         try {
-            $sql = "INSERT INTO products (product_name, brand, specification, description, price, 
+            $sql = "INSERT INTO products (product_name, specification, description, price, 
                                 quantity, image, category) VALUES (?,?,?,?,?,?,?,?)";
 
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $name, PDO::PARAM_STR);
-            $row->bindParam(2, $brand, PDO::PARAM_STR);
             $row->bindParam(3, $specification, PDO::PARAM_STR);
             $row->bindParam(4, $description, PDO::PARAM_STR);
             $row->bindParam(5, $price, PDO::PARAM_INT);
@@ -52,7 +51,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     {
         try {
             $productsList = array();
-            $sql = "SELECT product_id, product_name, brand, specification, description, 
+            $sql = "SELECT product_id, product_name, specification, description, 
                            quantity, price, image, category FROM products";
             $row = $this->conn->query($sql);
             $row->execute();
@@ -70,7 +69,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     public function GetOneById($product_id)
     {
         try {
-            $sql = "SELECT product_id, product_name, brand, specification, description,
+            $sql = "SELECT product_id, product_name, specification, description,
                            price, quantity, image, category FROM products WHERE product_id = ?";
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $product_id, PDO::PARAM_INT);
@@ -89,7 +88,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     {
         try {
             $productsList = array();
-            $sql = "SELECT product_id, product_name, brand, specification, description, 
+            $sql = "SELECT product_id, product_name, specification, description, 
                            quantity, price, image, category FROM products WHERE category = ?";
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $category, PDO::PARAM_STR);
@@ -108,7 +107,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     public function GetAllByIds($productIdList)
     {
         try {
-            $sql = "SELECT product_id, product_name, brand, specification, description,
+            $sql = "SELECT product_id, product_name, specification, description,
                            price, quantity, image, category FROM products WHERE product_id IN (?)";
             $row = $this->conn->prepare($sql);
             $param = "{" . implode(', ', $productIdList) . "}";
@@ -123,16 +122,15 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
         return null;
     }
 
-    public function UpdateProduct($product_id, $name, $brand, $specification, $description, $price, $quantity, $image, $category)
+    public function UpdateProduct($product_id, $name, $specification, $description, $price, $quantity, $image, $category)
     {
         try {
-            $sql = "UPDATE products SET product_name = ?, brand = ?, specification = ?, 
+            $sql = "UPDATE products SET product_name = ?, specification = ?, 
                     description = ?, price = ?, quantity = ?, image = ?, category = ?
                     WHERE product_id = ?";
 
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $name, PDO::PARAM_STR);
-            $row->bindParam(2, $brand, PDO::PARAM_STR);
             $row->bindParam(3, $specification, PDO::PARAM_STR);
             $row->bindParam(4, $description, PDO::PARAM_STR);
             $row->bindParam(5, $price, PDO::PARAM_INT);
@@ -186,7 +184,7 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
 
     private function FetchProduct($row)
     {
-        return new Product($row["product_id"], $row["product_name"], $row["brand"], $row["specification"],
+        return new Product($row["product_id"], $row["product_name"],$row["specification"],
             $row["description"], $row["price"], $row["quantity"], $row["image"], $row["category"]);
     }
 }
