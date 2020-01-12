@@ -87,7 +87,7 @@ if($action == 'incorrect'){?>
 echo "<div class='account-wall'>";
 echo "<div id='my-tab-content' class='tab-content'>";
 echo "<div class='tab-pane active' id='login'>";
-echo "<img class='profile-img' src='../images/login-icon_40x40.png'>";
+//echo "<img class='profile-img' src='../images/login-icon_40x40.png'>"; //Login Logo
 echo "<form class='form-signin' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
 echo "<input type='text' name='email' class='form-control' placeholder='Email' required autofocus />";
 echo "<input type='password' name='password' class='form-control' placeholder='Password' required />";
