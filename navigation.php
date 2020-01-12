@@ -33,9 +33,6 @@ if (isset($_SESSION['cart']) && $_SESSION['cart'] != 0){
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="<?php echo $home_url; ?>" role="button"><i class="fa fa-home"></i> Home</a>
-                </li>
 <!--                <li>
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="fa fa-list"></i> Categories <span class="caret"></span></a>

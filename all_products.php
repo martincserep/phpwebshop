@@ -9,8 +9,7 @@ if ($category != "") {
     $productsList = $product_srv->ReadAllByCategory($category);
 } else {
     // get all products
-    //$productsList = $product_srv->ReadAll();
-    $productsList = [];
+    $productsList = $product_srv->ReadAll();
 }
 
 echo "<div class='container-fluid'>";
@@ -40,13 +39,9 @@ foreach ($productsList as $product) {
             <div class="bottom-wrap">
                 <div class="price-wrap h5">
                     <p class="item-price"><span>Price: $<?= $product->getPrice() ?>.00</span></p>
-                    <p class="item-price"><span>In Stock: <?= $product->getQuantity() ?></span></p>
                 </div>
                 <div class="pc-buttons">
                     <a href='product.php?id=<?= $product->getId() ?>' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>
-                    <!--<a href="cart/add_to_cart.php?id=<?/*= $product->getId() */?>" type="button"
-                       class="<?/*= $hide_add_button */?>  btn btn-labeled btn-success btn-sm m-0">
-                        <span class="btn-label"></span><?/*= $button_text */?></a>-->
                 </div>
             </div>
         </figure>
