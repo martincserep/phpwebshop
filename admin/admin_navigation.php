@@ -11,8 +11,6 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <!-- Change "Site Admin" to your site name -->
-            <a class="navbar-brand" href="<?php echo $home_url; ?>admin/index.php"><i class="fa fa-cog"></i> Admin</a>
         </div>
 
         <div class="navbar-collapse collapse">
