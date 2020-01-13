@@ -48,9 +48,10 @@ if($_POST){
     }
 }
 
-include_once "../header.php";
-
-echo "<div class='col-sm-6 col-md-4 col-md-offset-4'>";
+include_once "../logreg-header.php";
+echo "<div class='gradient-body'>";
+echo "<div class='middle-container'>";
+//echo "<div class='col-sm-6 col-md-4 col-md-offset-4'>";
 
 // get 'action' value in url parameter to display corresponding prompt messages
 $action=isset($_GET['action']) ? $_GET['action'] : "";
@@ -83,20 +84,22 @@ if($action == 'incorrect'){?>
 
 }
 
-// actual HTML login form
-echo "<div class='account-wall'>";
-echo "<div id='my-tab-content' class='tab-content'>";
-echo "<div class='tab-pane active' id='login'>";
-//echo "<img class='profile-img' src='../images/login-icon_40x40.png'>"; //Login Logo
-echo "<form class='form-signin' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
-echo "<input type='text' name='email' class='form-control' placeholder='Email' required autofocus />";
-echo "<input type='password' name='password' class='form-control' placeholder='Password' required />";
-echo "<input type='submit' class='btn btn-lg btn-primary btn-block' value='Log In' />";
+echo "<form class='form' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
+echo "<img class='logo' src='../images/logo.png'>"; //Login Logo
+echo "<h1>Login</h1>";
+echo "<div class='text'>";
+echo "<input type='text' name='email' required autofocus />";
+echo "<span data-placeholder='Email'></span>";
+echo "</div>";
+echo "<div class='text'>";
+echo "<input type='password' name='password'required />";
+echo "<span data-placeholder='Password'></span>";
+echo "</div>";
+echo "<input type='submit' class='button' value='Log In' />";
+echo "<div class='bottom-text'>";
+echo "Don't have account? <a href='register.php'>Sign up</a> <br />";
+echo "<a href='../index.php'>Back to home</a>";
+echo "</div>";
 echo "</form>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
-
-echo "</div>";
 
 include_once "../footer.php";
