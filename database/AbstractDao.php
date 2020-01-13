@@ -3,10 +3,10 @@
 
 abstract class AbstractDao
 {
-    private $host = "mysql:3306";
-    private $db_name = "docker";
-    private $username = "docker";
-    private $password = "docker";
+    private $host = "localhost";
+    private $db_name = "ecom";
+    private $username = "root";
+    private $password = "";
     public $conn;
 
     // get the Database connection
