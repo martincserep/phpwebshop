@@ -183,3 +183,5 @@ localhost:80 172.29.0.1 - - [13/Jan/2020:16:30:02 +0000] "GET /libs/css/customer
 localhost:80 172.29.0.1 - - [13/Jan/2020:16:30:02 +0000] "GET /libs/css/admin.css HTTP/1.1" 200 766 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
 localhost:80 172.29.0.1 - - [13/Jan/2020:16:30:02 +0000] "GET /libs/css/bootstrap.css HTTP/1.1" 200 22112 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
 localhost:80 172.29.0.1 - - [13/Jan/2020:16:31:16 +0000] "-" 408 0 "-" "-"
+localhost:80 172.29.0.1 - - [13/Jan/2020:16:37:26 +0000] "GET / HTTP/1.1" 200 1531 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
+localhost:80 172.29.0.1 - - [13/Jan/2020:16:37:26 +0000] "GET /favicon.ico HTTP/1.1" 404 487 "http://localhost/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
