@@ -16,16 +16,16 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
     {
         try {
             $sql = "INSERT INTO products (product_name, specification, description, price, 
-                                quantity, image, category) VALUES (?,?,?,?,?,?,?,?)";
+                                quantity, image, category) VALUES (?,?,?,?,?,?,?)";
 
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $name, PDO::PARAM_STR);
-            $row->bindParam(3, $specification, PDO::PARAM_STR);
-            $row->bindParam(4, $description, PDO::PARAM_STR);
-            $row->bindParam(5, $price, PDO::PARAM_INT);
-            $row->bindParam(6, $quantity, PDO::PARAM_INT);
-            $row->bindParam(7, $image, PDO::PARAM_STR);
-            $row->bindParam(8, $category, PDO::PARAM_STR);
+            $row->bindParam(2, $specification, PDO::PARAM_STR);
+            $row->bindParam(3, $description, PDO::PARAM_STR);
+            $row->bindParam(4, $price, PDO::PARAM_INT);
+            $row->bindParam(5, $quantity, PDO::PARAM_INT);
+            $row->bindParam(6, $image, PDO::PARAM_STR);
+            $row->bindParam(7, $category, PDO::PARAM_STR);
             $row->execute();
 
         } catch (PDOException $pe) {
@@ -131,13 +131,13 @@ class DatabaseProductDao extends AbstractDao implements ProductDao
 
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $name, PDO::PARAM_STR);
-            $row->bindParam(3, $specification, PDO::PARAM_STR);
-            $row->bindParam(4, $description, PDO::PARAM_STR);
-            $row->bindParam(5, $price, PDO::PARAM_INT);
-            $row->bindParam(6, $quantity, PDO::PARAM_INT);
-            $row->bindParam(7, $image, PDO::PARAM_STR);
-            $row->bindParam(8, $category, PDO::PARAM_STR);
-            $row->bindParam(9, $product_id, PDO::PARAM_INT);
+            $row->bindParam(2, $specification, PDO::PARAM_STR);
+            $row->bindParam(3, $description, PDO::PARAM_STR);
+            $row->bindParam(4, $price, PDO::PARAM_INT);
+            $row->bindParam(5, $quantity, PDO::PARAM_INT);
+            $row->bindParam(6, $image, PDO::PARAM_STR);
+            $row->bindParam(7, $category, PDO::PARAM_STR);
+            $row->bindParam(8, $product_id, PDO::PARAM_INT);
             $row->execute();
 
         } catch (PDOException $pe) {

@@ -99,7 +99,7 @@ if($_POST){
         if($isItCreated){
 
             echo "<div class='alert alert-info'>";
-            echo "Successfully registered. <a href='{$home_url}login'>Please login</a>.";
+            echo "Successfully registered. <a href='{$home_url}/auth/login'>Please login</a>.";
             echo "</div>";
 
             // empty posted values

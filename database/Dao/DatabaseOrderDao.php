@@ -15,7 +15,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
     public function CreateOrder($user_id, $cart_items)
     {
         try {
-            $sql = "INSERT INTO orders (user_id, cart_items) VALUES (?,?);";
+            $sql = "INSERT INTO orders (user_id, cart_item) VALUES (?,?);";
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $user_id, PDO::PARAM_INT);
             $row->bindParam(2, $cart_items, PDO::PARAM_STR);
@@ -30,7 +30,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
     {
         try {
             $ordersList = array();
-            $sql = "SELECT order_id, user_id, cart_items, status, created_at FROM orders";
+            $sql = "SELECT order_id, user_id, cart_item, status, created_at FROM orders";
             $row = $this->conn->query($sql);
             $row->execute();
 
@@ -47,7 +47,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
     public function GetOneById($order_id)
     {
         try {
-            $sql = "SELECT order_id, user_id, cart_items, status, created_at FROM orders WHERE order_id = ?";
+            $sql = "SELECT order_id, user_id, cart_item, status, created_at FROM orders WHERE order_id = ?";
             $row = $this->conn->prepare($sql);
             $row->bindParam(1, $order_id, PDO::PARAM_INT);
             $row->execute();
@@ -95,7 +95,7 @@ class DatabaseOrderDao extends AbstractDao implements OrderDao
 
     private function FetchOrder($row)
     {
-        return new Order($row["order_id"], $row["user_id"], $row["cart_items"],
+        return new Order($row["order_id"], $row["user_id"], $row["cart_item"],
             $row["status"], $row["created_at"]);
     }
 }
