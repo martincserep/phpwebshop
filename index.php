@@ -1,97 +1,59 @@
 <?php
-// page given in URL parameter, default page is one
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
+// core configuration
+include_once "config/core.php";
+// set page title
+$page_title="Boski";
+// include page header HTML
 
-// set number of records per page
-$records_per_page = 5;
-
-// calculate for the query LIMIT clause
-$from_record_num = ($records_per_page * $page) - $records_per_page;
-
-// include database and object files
-include_once 'config/database.php';
-include_once 'objects/product.php';
-include_once 'objects/category.php';
-
-// instantiate database and objects
-$database = new Database();
-$db = $database->getConnection();
-
-$product = new Product($db);
-$category = new Category($db);
-
-// query products
-$stmt = $product->readAll($from_record_num, $records_per_page);
-$num = $stmt->rowCount();
-// set page header
-$page_title = "Read Products";
 include_once "header.php";
 
-echo "<div class='right-button-margin'>
-    <a href='create_product.php' class='btn btn-default pull-right'>Create Product</a>
-</div>";
-// display the products if there are any
-if($num>0){
+$category = isset($_GET['category']) ? ($_GET['category']) : "";
 
-    echo "<table class='table table-hover table-responsive table-bordered'>";
-    echo "<tr>";
-    echo "<th>Product</th>";
-    echo "<th>Price</th>";
-    echo "<th>Description</th>";
-    echo "<th>Category</th>";
-    echo "<th>Actions</th>";
-    echo "</tr>";
+$action = isset($_GET['action']) ? $_GET['action'] : "";
+echo "<div class='col-md-12'>";
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-
-        extract($row);
-
-        echo "<tr>";
-        echo "<td>{$name}</td>";
-        echo "<td>{$price}</td>";
-        echo "<td>{$description}</td>";
-        echo "<td>";
-        $category->id = $category_id;
-        $category->readName();
-        echo $category->name;
-        echo "</td>";
-
-        echo "<td>";
-        // read, edit and delete buttons
-        echo "<a href='read_one.php?id={$id}' class='btn btn-primary left-margin'>
-            <span class='glyphicon glyphicon-list'></span> Read
-        </a>
-         
-        <a href='update_product.php?id={$id}' class='btn btn-info left-margin'>
-            <span class='glyphicon glyphicon-edit'></span> Edit
-        </a>
-         
-        <a delete-id='{$id}' class='btn btn-danger delete-object'>
-            <span class='glyphicon glyphicon-remove'></span> Delete
-        </a>";
-        echo "</td>";
-
-        echo "</tr>";
-
-    }
-
-    echo "</table>";
-
-    // the page where this paging is used
-    $page_url = "index.php?";
-
-// count all products in the database to calculate total pages
-    $total_rows = $product->countAll();
-
-// paging buttons here
-    include_once 'paging.php';
+// alert if item added to cart
+if($action=='added'){?>
+    <script type="text/javascript">
+        swal({title:'Success', text:'This item has been added to Cart!', type:'success', timer:1700});
+    </script> <?php
 }
 
-// tell the user there are no products
-else{
-    echo "<div class='alert alert-info'>No products found.</div>";
+// user details updated
+if ($action == 'updated') {?>
+    <script type="text/javascript">
+        swal({title: 'Updated', text: 'Your details updated!', type: 'success', timer: 2200});
+    </script> <?php
 }
 
-// set page footer
-include_once "footer.php";
-?>
+if($action=='cart_empty'){?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'Your cart is Empty!', type: 'info', timer: 1500});
+    </script><?php
+}
+
+if ($action == 'removed') { ?>
+    <script type="text/javascript">
+        swal({title: 'Info', text: 'The selected item has been removed from your Cart!', type: 'info', timer: 1800});
+    </script> <?php
+}
+
+// alert if item already added to cart
+if($action=='exists'){?>
+    <script type="text/javascript">
+        swal({title:'Warning', text:'This item already exists in your Cart!', type:'warning', timer:1700});
+    </script> <?php
+}
+
+// alert if items purchased
+if($action=='purchased') {?>
+    <script type="text/javascript">
+        swal({title:'Success', text:'Thank you for your purchase! You can lay down, your products will arrive soon!', type:'success', timer:3000});
+    </script> <?php
+
+}
+include_once "all_products.php";
+echo "</div>";
+
+// footer HTML and JavaScript codes
+include 'footer.php';

@@ -1,99 +1,95 @@
 <?php
-// include database and object files
-include_once 'config/database.php';
-include_once 'objects/product.php';
-include_once 'objects/category.php';
+include_once "../../config/core.php";
 
-// get database connection
-$database = new Database();
-$db = $database->getConnection();
+$page_title = "Create product";
 
-// pass connection to objects
-$product = new Product($db);
-$category = new Category($db);
-// set page headers
-$page_title = "Create Product";
-include_once "header.php";
+include_once "../admin_header.php";
+$action = isset($_GET['action']) ? $_GET['action'] : "";
 
-echo "<div class='right-button-margin'>";
-echo "<a href='index.php' class='btn btn-default pull-right'>Read Products</a>";
-echo "</div>";
-
-?>
-<?php
-// if the form was submitted - PHP OOP CRUD Tutorial
-if($_POST){
-
-    // set product property values
-    $product->name = $_POST['name'];
-    $product->price = $_POST['price'];
-    $product->description = $_POST['description'];
-    $product->category_id = $_POST['category_id'];
-
-    // create the product
-    if($product->create()){
-        echo "<div class='alert alert-success'>Product was created.</div>";
-    }
-
-    // if unable to create the product, tell the user
-    else{
-        echo "<div class='alert alert-danger'>Unable to create product.</div>";
-    }
+if (isset($_GET['message'])){
+    echo $_GET['message'];
 }
+
+if ($action == "wrong_input"){?>
+    <script type="text/javascript">
+        swal({title:'Input Error', text:'The quantity and price fields can only be positive and the price cannot be less than 1!', type:'warning'});
+    </script> <?php
+}
+
 ?>
+    <main class="my-form">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 list-border-background">
+                    <form action="add_product_to_db.php" method="post" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="name" class="col-lg-3 col-form-label text-md-right">
+                                Name</label>
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" required>
+                            </div>
+                        </div>
 
-    <!-- HTML form for creating a product -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
-        <table class='table table-hover table-responsive table-bordered'>
+                        <div class="form-group row">
+                            <label for="specification" class="col-lg-3 col-form-label text-md-right">
+                                Specification</label>
+                            <div class="col-md-6">
+                                <input type="text" name="specification" class="form-control" required>
+                            </div>
+                        </div>
 
-            <tr>
-                <td>Name</td>
-                <td><input type='text' name='name' class='form-control' /></td>
-            </tr>
+                        <div class="form-group row">
+                            <label for="description" class="col-lg-3 col-form-label text-md-right">
+                                Description</label>
+                            <div class="col-md-6">
+                                <input type="text" name="description" class="form-control" required>
+                            </div>
+                        </div>
 
-            <tr>
-                <td>Price</td>
-                <td><input type='text' name='price' class='form-control' /></td>
-            </tr>
+                        <div class="form-group row">
+                            <label for="price" class="col-lg-3 col-form-label text-md-right">
+                                Price</label>
+                            <div class="col-md-6">
+                                <input type="number" name="price" class="form-control" required>
+                            </div>
+                        </div>
 
-            <tr>
-                <td>Description</td>
-                <td><textarea name='description' class='form-control'></textarea></td>
-            </tr>
+                        <div class="form-group row">
+                            <label for="stock" class="col-lg-3 col-form-label text-md-right">
+                                Stock</label>
+                            <div class="col-md-6">
+                                <input type="number" name="stock" class="form-control" required>
+                            </div>
+                        </div>
 
-            <tr>
-                <td>Category</td>
-                <td>
-                    <?php
-                    // read the product categories from the database
-                    $stmt = $category->read();
+                        <div class="form-group row">
+                            <label for="image" class="col-lg-3 col-form-label text-md-right">
+                                Image Url</label>
+                            <div class="col-md-6">
+                                <input type="file" name="image">
+                            </div>
+                        </div>
 
-                    // put them in a select drop-down
-                    echo "<select class='form-control' name='category_id'>";
-                    echo "<option>Select category...</option>";
+                        <div class="form-group row">
+                            <label for="category" class="col-lg-3 col-form-label text-md-right">
+                                Category</label>
+                            <div class="col-md-6">
+                                <input type="text" name="category" class="form-control" required>
+                            </div>
+                        </div>
 
-                    while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)){
-                        extract($row_category);
-                        echo "<option value='{$id}'>{$name}</option>";
-                    }
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                Save product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
 
-                    echo "</select>";
-                    ?>
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td>
-                    <button type="submit" class="btn btn-primary">Create</button>
-                </td>
-            </tr>
-
-        </table>
-    </form>
 <?php
 
-// footer
-include_once "footer.php";
-?>
+include_once "../../footer.php";
