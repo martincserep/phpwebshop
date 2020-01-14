@@ -33,11 +33,11 @@ $ordersList = $services->ReadAllOrders();
                 <span class="li-price"><?= $status ?></span>
                 <span class="li-name"><?= $order->getCreatedAt() ?></span>
                 <div class="li-name">
-                    <span class="li-id"><a href="one_order.php?id=<?= $order->getId() ?>" type="button" class="btn btn-info btn-sm m-0"><i class="fas fa-info"></i></a></span>
+                    <span class="li-id"><a href="one_order.php?id=<?= $order->getId() ?>" type="button"><i class="fas fa-info"></i></a></span>
                     <span class="li-id"><a href="accept_order.php?id=<?= $order->getId() ?>&action=processed" type="button"
                                            class=" <?= $block_button ?> btn btn-success btn-sm m-0"><i class="fas fa-check"></i></a></span>
                     <span class="li-id"><a href='delete_order.php?id=<?= $order->getId() ?>&action=deleted'
-                                           class='btn btn-danger btn-sm m-0'><i class="fas fa-trash"></i></a></span>
+                                           ><i class="fas fa-trash"></i></a></span>
                 </div>
 
 

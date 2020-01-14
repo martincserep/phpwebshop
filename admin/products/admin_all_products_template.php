@@ -9,6 +9,17 @@ $productsList = $services->ReadAll();
 ?>
 <div class="list">
     <ul>
+        <li class="list-header">
+            <span class="li-id">#</span>
+            <span class="li-name">Name</span>
+            <span class="li-price">Price</span>
+            <span class="li-quantity">Stock</span>
+            <span class="li-quantity">Category</span>
+            <span class="li-name">Actions</span>
+
+        </li>
+    </ul>
+    <ul>
         <?php foreach ($productsList as $product){
         // check product stock
         if ($product->getQuantity() == 0){
@@ -25,9 +36,12 @@ $productsList = $services->ReadAll();
             <span class="li-name"><?= $product->getName() ?></span>
             <span class="li-price"><?= $product->getPrice() ?></span>
             <span class="li-quantity"><?= $product->getQuantity() ?></span>
-            <?= "<a href='products/admin_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
-            <?= "<a href='products/delete_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-danger btn-sm m-0'>
-                            <span class='btn-label'></span>Delete</a>"?>
+            <span class="li-quantity"><?= $product->getCategory() ?></span>
+            <div class="li-name">
+                <span class='li-id'><?= "<a href='products/admin_product.php?id={$product->getId()}' type='button'><i class=\"fas fa-info\"></i></a>"?></span>
+                <span class='li-id'><?= "<a href='products/delete_product.php?id={$product->getId()}' type='button'>
+                        <i class=\"fas fa-trash\"></i></a>"?></span>
+            </div>
         </li>
             <?php
         }
