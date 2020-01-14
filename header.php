@@ -16,6 +16,7 @@
     <link href="<?php echo $home_url . "libs/css/admin.css" ?>" rel="stylesheet" />
     <link href="<?php echo $home_url . "libs/css/customer.css" ?>" rel="stylesheet" />
     <link href="<?php echo $home_url . "libs/css/main.css" ?>" rel="stylesheet" />
+    <link href="<?php echo $home_url . "libs/css/header.css" ?>" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
