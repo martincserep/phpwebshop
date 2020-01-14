@@ -6,10 +6,9 @@ $services = new SimpleOrderServices();
 $ordersList = $services->ReadAllOrders();
 ?>
 <div class="list">
-<div class="list-header">
     <ul>
-        <li class="list-item">
-        <span class="li-id">#</span>
+        <li class="list-header">
+        <span class="li-row-count">#</span>
         <span class="li-id">Order Id</span>
         <span class="li-id">User Id</span>
         <span class="li-price">Status</span>
@@ -28,7 +27,7 @@ $ordersList = $services->ReadAllOrders();
             ?>
 
             <li class="list-item">
-                <span class="li-id"><?= $row_count ?></span>
+                <span class="li-row-count"><?= $row_count ?></span>
                 <span class="li-id"><?= $order->getId() ?></span>
                 <span class="li-id"><?= $order->getUserId() ?></span>
                 <span class="li-price"><?= $status ?></span>
@@ -47,5 +46,4 @@ $ordersList = $services->ReadAllOrders();
         }
         ?>
         </ul>
-</div>
 </div>

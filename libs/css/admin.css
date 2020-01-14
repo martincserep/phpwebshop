@@ -3,10 +3,24 @@
     color: #fefefe;
     margin: 30px auto;
 }
+.list i {
+    color: #fefefe;
+}
+.list i:hover {
+    color: #1b262c;
+}
 .list ul{
 
 }
-
+.list-header {
+    font-size: 20px;
+    margin: 10px auto 10px auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #8a182b;
+    display: inline-flex;
+    transition: .3s;
+}
 .list-item {
     font-size: 15px;
     margin: 10px auto 10px auto;
@@ -24,8 +38,11 @@
     background-color: #f17362;
     transition: .3s;
 }
-.li-id {
+.li-row-count {
     width: 5%;
+}
+.li-id {
+    width: 10%;
 }
 .li-name {
     width: 30%;
