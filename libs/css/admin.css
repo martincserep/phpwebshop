@@ -31,9 +31,9 @@
     transition: .3s;
 }
 .list-item:hover {
-    font-size: 20px;
+    font-size: 15px;
     margin: 0px auto 0px auto;
-    padding: 28.5px;
+    padding: 30px;
     color: #1b262c;
     background-color: #f17362;
     transition: .3s;
@@ -52,4 +52,20 @@
 }
 .li-quantity {
     width: 20%;
+}
+.page {
+    padding: 5px;
+    border: 2px solid #e32249;
+}
+
+.page-active {
+    width: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #e32249;
+    background-color: #e32249;
+}
+
+.page-active a{
+    color: #fefefe;
 }
