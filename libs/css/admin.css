@@ -1,0 +1,38 @@
+.list {
+    text-align: center;
+    color: #fefefe;
+    margin: 30px auto;
+}
+.list ul{
+
+}
+
+.list-item {
+    font-size: 15px;
+    margin: 10px auto 10px auto;
+    width: 80%;
+    padding: 20px;
+    background-color: #e32249;
+    display: inline-flex;
+    transition: .3s;
+}
+.list-item:hover {
+    font-size: 20px;
+    margin: 0px auto 0px auto;
+    padding: 28.5px;
+    color: #1b262c;
+    background-color: #f17362;
+    transition: .3s;
+}
+.li-id {
+    width: 5%;
+}
+.li-name {
+    width: 30%;
+}
+.li-price {
+    width: 20%;
+}
+.li-quantity {
+    width: 20%;
+}

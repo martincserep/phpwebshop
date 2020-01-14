@@ -13,7 +13,6 @@
     <!-- set the page title, for seo purposes too -->
     <title><?php echo isset($page_title) ? strip_tags($page_title) : "Store Front"; ?></title>
 
-    <link href="<?php echo $home_url . "libs/css/admin.css" ?>" rel="stylesheet" />
     <link href="<?php echo $home_url . "libs/css/customer.css" ?>" rel="stylesheet" />
     <link href="<?php echo $home_url . "libs/css/main.css" ?>" rel="stylesheet" />
     <link href="<?php echo $home_url . "libs/css/header.css" ?>" rel="stylesheet" />

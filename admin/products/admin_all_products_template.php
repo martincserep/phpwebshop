@@ -7,7 +7,34 @@ $services = new SimpleProductServices();
 // get all products
 $productsList = $services->ReadAll();
 ?>
+<div class="list">
+    <ul>
+        <?php foreach ($productsList as $product){
+        // check product stock
+        if ($product->getQuantity() == 0){
+            $block_checkout = "disabled";
+            $button_text = "Out of stock!";
+        } else{
+            $block_checkout = "";
+            $button_text = "Add to cart";
+        }
+        ?>
 
+        <li class="list-item">
+            <span class="li-id"><?= $product->getId() ?></span>
+            <span class="li-name"><?= $product->getName() ?></span>
+            <span class="li-price"><?= $product->getPrice() ?></span>
+            <span class="li-quantity"><?= $product->getQuantity() ?></span>
+            <?= "<a href='products/admin_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-info btn-sm m-0'>Details</a>"?>
+            <?= "<a href='products/delete_product.php?id={$product->getId()}' type='button' class='btn btn-labeled btn-danger btn-sm m-0'>
+                            <span class='btn-label'></span>Delete</a>"?>
+        </li>
+            <?php
+        }
+        ?>
+    </ul>
+</div>
+<!--
 <div>
     <table class='table table-hover table-responsive pc-card list-border-background width-80-percent'>
         <thead>
@@ -30,6 +57,7 @@ $productsList = $services->ReadAll();
                 $button_text = "Add to cart";
             }
             ?>
+
             <tr>
                 <td><span class="margin-1em-zero"><?= $product->getId() ?></span></td>
                 <td><span class="margin-1em-zero"><?= $product->getName() ?></span></td>
@@ -47,7 +75,4 @@ $productsList = $services->ReadAll();
         ?>
     </table>
 </div>
-
-
-
-
+-->
