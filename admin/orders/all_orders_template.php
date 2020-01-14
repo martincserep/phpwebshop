@@ -5,20 +5,20 @@ $services = new SimpleOrderServices();
 
 $ordersList = $services->ReadAllOrders();
 ?>
-<div class="list-border-background width-80-percent">
-    <table class="table table-striped table-responsive-md btn-table">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Order Id</th>
-            <th>User Id</th>
-            <th>Status</th>
-            <th>Date</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
+<div class="list">
+<div class="list-header">
+    <ul>
+        <li class="list-item">
+        <span class="li-id">#</span>
+        <span class="li-id">Order Id</span>
+        <span class="li-id">User Id</span>
+        <span class="li-price">Status</span>
+        <span class="li-name">Date</span>
+        <span class="li-name">Actions</span>
 
-        <tbody>
+        </li>
+    </ul>
+        <ul>
         <?php
         $row_count = 0;
         foreach ($ordersList as $order) {
@@ -27,25 +27,25 @@ $ordersList = $services->ReadAllOrders();
             $block_button = ($status == "processed") ? "disabled" : "";
             ?>
 
-            <tr>
-                <td><span><?= $row_count ?></span></td>
-                <td><span><?= $order->getId() ?></span></td>
-                <td><span><?= $order->getUserId() ?></span></td>
-                <td><span><?= $status ?></span></td>
-                <td><span><?= $order->getCreatedAt() ?></span></td>
-                <td>
-                    <a href="one_order.php?id=<?= $order->getId() ?>" type="button" class="btn btn-info btn-sm m-0">Details</a>
-                    <a href="accept_order.php?id=<?= $order->getId() ?>&action=processed" type="button"
-                       class=" <?= $block_button ?> btn btn-success btn-sm m-0">Accept</a>
-                    <a href='delete_order.php?id=<?= $order->getId() ?>&action=deleted'
-                       class='btn btn-danger btn-sm m-0'>Delete</a>
-                </td>
+            <li class="list-item">
+                <span class="li-id"><?= $row_count ?></span>
+                <span class="li-id"><?= $order->getId() ?></span>
+                <span class="li-id"><?= $order->getUserId() ?></span>
+                <span class="li-price"><?= $status ?></span>
+                <span class="li-name"><?= $order->getCreatedAt() ?></span>
+                <div class="li-name">
+                    <span class="li-id"><a href="one_order.php?id=<?= $order->getId() ?>" type="button" class="btn btn-info btn-sm m-0"><i class="fas fa-info"></i></a></span>
+                    <span class="li-id"><a href="accept_order.php?id=<?= $order->getId() ?>&action=processed" type="button"
+                                           class=" <?= $block_button ?> btn btn-success btn-sm m-0"><i class="fas fa-check"></i></a></span>
+                    <span class="li-id"><a href='delete_order.php?id=<?= $order->getId() ?>&action=deleted'
+                                           class='btn btn-danger btn-sm m-0'><i class="fas fa-trash"></i></a></span>
+                </div>
 
-            </tr>
+
+            </li>
             <?php
         }
         ?>
-        </tbody>
-
-    </table>
+        </ul>
+</div>
 </div>
