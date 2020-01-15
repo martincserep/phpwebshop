@@ -14,6 +14,7 @@
     <link href="<?php echo $home_url . "libs/css/admin.css" ?>" rel="stylesheet" />
 
     <link href="<?php echo $home_url . "libs/css/header.css" ?>" rel="stylesheet" />
+    <link href="<?php echo $home_url . "libs/css/main.css" ?>" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/bd224c8064.js" crossorigin="anonymous"></script>
 
 
