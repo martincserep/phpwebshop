@@ -26,7 +26,7 @@ foreach ($productsList as $product) {
     ?>
         <div class="product-card">
             <img onerror="this.src='uploads/noimage.png'" src='<?= $product->getImage() ?>' alt=""/>
-            <h1><?= $product->getName() ?></h1>
+            <h1 class="product-name"><?= $product->getName() ?></h1>
             <p class="product-price">$<?= $product->getPrice() ?></p>
             <p class="product-desc"><?= $product->getDescription() ?></p>
             <p><a href='product.php?id=<?= $product->getId() ?>'><button>Details</button></a></p>
