@@ -7,7 +7,48 @@ $services = new SimpleProductServices();
 // get all products
 $productsList = $services->ReadAll();
 ?>
+<div class="list">
+    <ul>
+        <li class="list-header">
+            <span class="li-id">#</span>
+            <span class="li-name">Name</span>
+            <span class="li-price">Price</span>
+            <span class="li-quantity">Stock</span>
+            <span class="li-quantity">Category</span>
+            <span class="li-name">Actions</span>
 
+        </li>
+    </ul>
+    <ul>
+        <?php foreach ($productsList as $product){
+        // check product stock
+        if ($product->getQuantity() == 0){
+            $block_checkout = "disabled";
+            $button_text = "Out of stock!";
+        } else{
+            $block_checkout = "";
+            $button_text = "Add to cart";
+        }
+        ?>
+
+        <li class="list-item">
+            <span class="li-id"><?= $product->getId() ?></span>
+            <span class="li-name"><?= $product->getName() ?></span>
+            <span class="li-price"><?= $product->getPrice() ?></span>
+            <span class="li-quantity"><?= $product->getQuantity() ?></span>
+            <span class="li-quantity"><?= $product->getCategory() ?></span>
+            <div class="li-name">
+                <span class='li-id'><?= "<a href='products/admin_product.php?id={$product->getId()}' type='button'><i class=\"fas fa-info\"></i></a>"?></span>
+                <span class='li-id'><?= "<a href='products/delete_product.php?id={$product->getId()}' type='button'>
+                        <i class=\"fas fa-trash\"></i></a>"?></span>
+            </div>
+        </li>
+            <?php
+        }
+        ?>
+    </ul>
+</div>
+<!--
 <div>
     <table class='table table-hover table-responsive pc-card list-border-background width-80-percent'>
         <thead>
@@ -30,6 +71,7 @@ $productsList = $services->ReadAll();
                 $button_text = "Add to cart";
             }
             ?>
+
             <tr>
                 <td><span class="margin-1em-zero"><?= $product->getId() ?></span></td>
                 <td><span class="margin-1em-zero"><?= $product->getName() ?></span></td>
@@ -47,7 +89,4 @@ $productsList = $services->ReadAll();
         ?>
     </table>
 </div>
-
-
-
-
+-->

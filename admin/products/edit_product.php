@@ -25,12 +25,10 @@ if ($action == "wrong_input"){?>
 }
 
 ?>
-    <main class="my-form list-border-background width-70-percent">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <form action="update_product_in_db.php?id=<?= $id ?>" method="post" enctype="multipart/form-data">
-                        <div class="form-group row">
+        <div class="middle-container">
+                    <form class="form" action="update_product_in_db.php?id=<?= $id ?>" method="post" enctype="multipart/form-data">
+                        <h1>Edit product</h1>
+                        <div class="form-item">
                             <label for="name" class="col-lg-3 col-form-label text-md-right">
                                 Name</label>
                             <div class="col-md-6">
@@ -38,7 +36,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="description" class="col-lg-3 col-form-label text-md-right">
                                 Description</label>
                             <div class="col-md-6">
@@ -46,7 +44,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="specification" class="col-lg-3 col-form-label text-md-right">
                                 Specification</label>
                             <div class="col-md-6">
@@ -54,7 +52,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="price" class="col-lg-3 col-form-label text-md-right">
                                 Price</label>
                             <div class="col-md-6">
@@ -62,7 +60,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="stock" class="col-lg-3 col-form-label text-md-right">
                                 Stock</label>
                             <div class="col-md-6">
@@ -70,7 +68,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="old_image" class="col-lg-3 col-form-label text-md-right">
                                 Old Image Url</label>
                             <div class="col-md-6">
@@ -78,7 +76,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="image" class="col-lg-3 col-form-label text-md-right">
                                 New Image</label>
                             <div class="col-md-6">
@@ -86,7 +84,7 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-item">
                             <label for="category" class="col-lg-3 col-form-label text-md-right">
                                 Category</label>
                             <div class="col-md-6">
@@ -94,8 +92,8 @@ if ($action == "wrong_input"){?>
                             </div>
                         </div>
 
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="form-item">
+                            <button class="button" type="submit" class="btn btn-primary">
                                 Save product
                             </button>
                         </div>
