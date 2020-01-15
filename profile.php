@@ -67,7 +67,7 @@ $user = $user_srv->ReadUserById($user_id);
                     Change password
                 </a>
                 <a href="index.php" class="btn btn-success">
-                    Back
+                    <i class="fas fa-arrow-left"></i>
                 </a>
             </div>
         </form>
