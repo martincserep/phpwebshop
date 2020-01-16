@@ -5,16 +5,14 @@ global $quantity;
 global $row_count;
 
 ?>
-<tr>
-    <td><h4><?= $row_count?></h4></td>
-    <td><h4><?= $name ?></h4></td>
-    <td>
-        <form class='update-quantity-form' action="update_cart.php" method="post">
+<li class="list-item">
+    <span class="li-row-count"><?= $row_count?></span>
+    <span class="li-name"><?= $name ?></span>
+        <form class='li-quantity' action="update_cart.php" method="post">
             <input type="hidden" name="product_id" value="<?= $id?>">
-            <input type='number' name='quantity' value='<?= $quantity?>' class='btn row width-30-percent' min='1'>
-            <button class='btn btn-primary btn-margin-right' type='submit'>Update</button>
+            <input type='number' name='quantity' value='<?= $quantity?>' class='' min='1'>
+            <button type='submit'>Update</button>
         </form>
-    </td>
-    <td><a href='remove_from_cart.php?id=<?= $id?>' class='btn btn-danger'>Delete</a></td>
-    <td class="pull-right"><?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?></td>
-</tr>
+    <span class="li-price"><a href='remove_from_cart.php?id=<?= $id?>' class='count-box-link'>Delete</a></span>
+    <span class="li-price"><?php echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>"; ?></span>
+</li>
