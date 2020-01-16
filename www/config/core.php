@@ -5,7 +5,8 @@ error_reporting(E_ALL);
 // start php session
 session_start();
 
-$context_path = "/";//"/phpwebshop/";
+$context_path = "/";
+//$context_path = "/phpwebshop/";
 $home_url="http://localhost" . $context_path;
 
 include_once __DIR__ . "/../auth/login_checker.php";

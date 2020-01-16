@@ -13,58 +13,43 @@ $sevices = new SimpleUserServices();
 include_once "../libs/php/utils.php";
 
 // include page header HTML
-include_once "../header.php";
+include_once "../logreg-header.php";
 
-// code when form was submitted will be here
 ?>
-    <div class="list-border-background">
-        <form action='register.php' method='post' id='register'>
-
-            <table class='table table-responsive'>
-
-                <tr>
-                    <td class='width-30-percent'>Firstname</td>
-                    <td><input type='text' name='firstname' class='form-control' required value="<?php echo isset($_POST['firstname']) ? htmlspecialchars($_POST['firstname'], ENT_QUOTES) : "";  ?>" /></td>
-                </tr>
-
-                <tr>
-                    <td>Lastname</td>
-                    <td><input type='text' name='lastname' class='form-control' required value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname'], ENT_QUOTES) : "";  ?>" /></td>
-                </tr>
-
-                <tr>
-                    <td>Contact Number</td>
-                    <td><input type='text' name='contact_number' class='form-control' required value="<?php echo isset($_POST['contact_number']) ? htmlspecialchars($_POST['contact_number'], ENT_QUOTES) : "";  ?>" /></td>
-                </tr>
-
-                <tr>
-                    <td>Address</td>
-                    <td><textarea name='address' class='form-control' required><?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address'], ENT_QUOTES) : "";  ?></textarea></td>
-                </tr>
-
-                <tr>
-                    <td>Email</td>
-                    <td><input type='email' name='email' class='form-control' required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES) : "";  ?>" /></td>
-                </tr>
-
-                <tr>
-                    <td>Password</td>
-                    <td><input type='password' name='password' class='form-control' required id='passwordInput'></td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td>
-                        <button type="submit" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-plus"></span> Register
-                        </button>
-                    </td>
-                </tr>
-
-            </table>
+        <form class="form" action='register.php' method='post' id='register'>
+            <img class='logo' src='../images/logo.png'>
+            <h1>Login</h1>
+            <div class='text'>
+                <input type='text' name='firstname' required value="<?php echo isset($_POST['firstname']) ? htmlspecialchars($_POST['firstname'], ENT_QUOTES) : "";  ?>" />
+                <span data-placeholder='First name'></span>
+            </div>
+            <div class='text'>
+                <input type='text' name='lastname' required value="<?php echo isset($_POST['lastname']) ? htmlspecialchars($_POST['lastname'], ENT_QUOTES) : "";  ?>" />
+                <span data-placeholder='Last name'></span>
+            </div>
+            <div class='text'>
+                <input type='text' name='contact_number' required value="<?php echo isset($_POST['contact_number']) ? htmlspecialchars($_POST['contact_number'], ENT_QUOTES) : "";  ?>" />
+                <span data-placeholder='Contact Number'></span>
+            </div>
+            <div class='text'>
+                <input name='address' required><?php echo isset($_POST['address']) ? htmlspecialchars($_POST['address'], ENT_QUOTES) : "";  ?></input>
+                <span data-placeholder='Address'></span>
+            </div>
+            <div class='text'>
+                 <input type='email' name='email' required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES) : "";  ?>" />
+                <span data-placeholder='Email'></span>
+            </div>
+            <div class='text'>
+                    <input type='password' name='password' required id='passwordInput'>
+                <span data-placeholder='Password'></span>
+            </div>
+            <input type='submit' class='button' value='Sign Up' />
+            <div class='bottom-text'>
+                Already have account? <a href='login.php'>Log in</a> <br />
+                <a href='../index.php'>Back to home</a>
+            </div>
         </form>
 
-    </div>
 <?php
 
 // if form was posted
@@ -99,7 +84,7 @@ if($_POST){
         if($isItCreated){
 
             echo "<div class='alert alert-info'>";
-            echo "Successfully registered. <a href='{$home_url}login'>Please login</a>.";
+            echo "Successfully registered. <a href='{$home_url}/auth/login'>Please login</a>.";
             echo "</div>";
 
             // empty posted values
@@ -107,6 +92,7 @@ if($_POST){
 
         }else{
             echo "<div class='alert alert-danger' role='alert'>Unable to register. Please try again.</div>";
+            echo "</div>";
         }
     }
 }

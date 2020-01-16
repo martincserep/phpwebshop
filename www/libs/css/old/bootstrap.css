@@ -12,7 +12,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #cfd0cf;
+    background-color: #4d4646;
 }
 
 .img-fluid {
@@ -1431,7 +1431,7 @@ th {
 
 html {
     font-size: 10px;
-    background-color: rgba(207, 208, 212, 0.93);
+    background-color: #4d4646;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -1440,7 +1440,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: rgba(207, 208, 212, 0.93);
+    background-color: #4d4646;
 }
 
 input,
@@ -3912,9 +3912,10 @@ fieldset[disabled] .btn-default.focus {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #337ab7;
+    color: #1b262c ;
+    background-color: #bbe1fa ;
     border-color: #2e6da4;
+    transition: .2s ease-in-out;
 }
 
 .btn-primary:focus,
