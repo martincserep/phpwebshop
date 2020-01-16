@@ -3,6 +3,5 @@
 Progress:
 - [x] Admin page design
 - [x] Customer page design
-- [ ] MariaDB -> MySQL
-- [ ] Docker version
+- [x] Docker version
 - [ ] Readme file
