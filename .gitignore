@@ -46,6 +46,13 @@ cmake-build-*/
 # File-based project format
 *.iws
 
+/.env
+/.vscode
+/config/*
+/data/*
+/logs/*
+.DS_Store
+
 # IntelliJ
 out/
 
