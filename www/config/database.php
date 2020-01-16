@@ -2,7 +2,7 @@
 class Database{
 
     // specify your own database credentials
-    private $host = "mysql:3306";
+    private $host = "localhost:8080";
     private $db_name = "docker";
     private $username = "docker";
     private $password = "docker";
