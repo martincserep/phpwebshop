@@ -2,10 +2,10 @@
 class Database{
 
     // specify your own database credentials
-    private $host = "localhost";
-    private $db_name = "ecom";
-    private $username = "root";
-    private $password = "";
+    private $host = "localhost:8080";
+    private $db_name = "docker";
+    private $username = "docker";
+    private $password = "docker";
     public $conn;
 
     // get the database connection
