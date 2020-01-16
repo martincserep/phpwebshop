@@ -14,8 +14,8 @@ $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action == 'pw_updated'){?>
     <script type="text/javascript">
         swal({title:'Updated', text:'Passwords has been updated!', type:'info', timer:1700});
-    </script> <?php
-}
+        </script> <?php
+    }
 
 $user_id = $_SESSION['user_id'];
 

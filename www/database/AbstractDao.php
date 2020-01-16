@@ -1,6 +1,4 @@
 <?php
-
-
 abstract class AbstractDao
 {
     private $host = "mysql:3306";
@@ -23,3 +21,4 @@ abstract class AbstractDao
         return $this->conn;
     }
 }
+?>

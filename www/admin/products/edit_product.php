@@ -5,7 +5,7 @@ $page_title = "Edit product";
 
 include_once "../admin_header.php";
 // get current product details
-include "../../services/simpleServices/SimpleProductServices.php";
+include_once "../../services/simpleServices/SimpleProductServices.php";
 $product_srv = new SimpleProductServices();
 
 $id = htmlspecialchars($_GET["id"]);

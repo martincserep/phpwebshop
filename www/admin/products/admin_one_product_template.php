@@ -1,6 +1,6 @@
 <?php
 
-include "../../services/simpleServices/SimpleProductServices.php";
+include_once "../../services/simpleServices/SimpleProductServices.php";
 global $home_url;
 $services = new SimpleProductServices();
 // get id from query string

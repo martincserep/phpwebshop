@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . "/../../Database/AbstractDao.php";
-include_once __DIR__ . "/../../Database/OrderDao.php";
+include_once __DIR__ . "/../../database/AbstractDao.php";
+include_once __DIR__ . "/../../database/OrderDao.php";
 include_once __DIR__ . "/../../objects/order.php";
 
 class DatabaseOrderDao extends AbstractDao implements OrderDao

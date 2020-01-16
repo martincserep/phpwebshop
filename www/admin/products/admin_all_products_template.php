@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . "/../../services/simpleServices/SimpleProductServices.php";
+include_once __DIR__ . "/../../services/simpleServices/SimpleProductServices.php";
 
 $services = new SimpleProductServices();
 
