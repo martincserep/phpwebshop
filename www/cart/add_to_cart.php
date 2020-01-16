@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$home_url="http://localhost/phpwebshop/";
+$home_url="http://localhost/";
 
 $id = isset($_GET['id']) ? $_GET['id'] : "";
 
