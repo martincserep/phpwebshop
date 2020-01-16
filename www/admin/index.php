@@ -6,7 +6,7 @@ include_once "../config/core.php";
 $page_title="All products";
 
 // include page header HTML
-include 'admin_header.php';
+include_once 'admin_header.php';
 
 echo "<div class='col-md-12'>";
 

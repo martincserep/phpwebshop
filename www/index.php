@@ -56,4 +56,4 @@ include_once "all_products.php";
 echo "</div>";
 
 // footer HTML and JavaScript codes
-include 'footer.php';
+include_once 'footer.php';
