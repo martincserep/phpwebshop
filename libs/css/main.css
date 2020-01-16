@@ -134,6 +134,9 @@
 .ordered-h1 {
     text-align: center;
 }
+.center {
+    text-align: center;
+}
 
 .personal-info {
     text-align: center;
@@ -172,6 +175,8 @@
     margin: 20px 10px 0px 10px;
     font-size: 20px;
 }
+
+/* LIST SECTION */
 
 .list {
     text-align: center;
@@ -240,3 +245,5 @@
     font-size: 15px;
     margin: 20px;
 }
+
+/* ONE PRODUCT */
