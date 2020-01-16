@@ -19,7 +19,7 @@
                 &nbsp;&nbsp;<?php echo $_SESSION['firstname']; ?>
                 &nbsp;&nbsp;<span class="caret"></span>
             </a><ul class="sub-menu">
-                <li><a href="<?php echo $home_url; ?>auth/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a href="<?php echo $home_url; ?>auth/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </li>
     </ul>

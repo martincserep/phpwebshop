@@ -60,18 +60,17 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)) {
         $redirectPage = "cart.php";
     }
     ?>
-    <div class="width-80-percent list-border-background">
-        <table class='table table-responsive-md btn-table table-hover'>
-            <!--create headers-->
-            <thead>
-            <tr>
-                <th><h4><strong>#</strong></h4></th>
-                <th><h4><strong>Name</strong></h4></th>
-                <th><h4><strong>Update</strong></h4></th>
-                <th><h4><strong>Delete</strong></h4></th>
-                <th><h4><strong><span class="pull-right">Price</span></strong></h4></th>
-            </tr>
-            </thead>
+    <div class="list">
+        <ul>
+            <li class="list-header">
+                <span class="li-row-count">#</span>
+                <span class="li-name">Name</span>
+                <span class="li-quantity">Quantity</span>
+                <span class="li-price">Actions</span>
+                <span class="li-price">Price</span>
+            </li>
+        </ul>
+        <ul>
             <!--read cart items-->
             <?php foreach ($_SESSION['cart'] as $id => $value) {
                 $quantity = $_SESSION['cart'][$id]['quantity'];
@@ -87,36 +86,18 @@ if (!isset($_SESSION['cart']) || ($_SESSION['cart'] == 0)) {
                 $item_count += $quantity;
                 $total += $sub_total;
             } ?>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td align="right">
-                    <h4 class='m-b-10px'>Total (<?= $item_count ?> items)</h4>
-                </td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td align="right">
-                    <?php echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>" ?>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td align="right">
-                    <a href='<?= $redirectPage ?>?action=<?= $action ?>' class='btn btn-success m-b-10px'>
-                        <i class="fa fa-cart-plus"></i> Proceed to checkout
-                    </a>
-                </td>
-            </tr>
+        </ul>
+        <div class="total-count-box">
+            <h4 class='count-box-item'>Total (<?= $item_count ?> items)</h4>
+            <?php echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>" ?>
+
+            <a href='<?= $redirectPage ?>?action=<?= $action ?>' class='count-box-link'>
+                Proceed to checkout
+            </a>
+        </div>
+
+
     </div>
-    </table>
 
     <?php
 

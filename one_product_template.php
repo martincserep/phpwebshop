@@ -17,29 +17,31 @@ if ($product->getQuantity() == 0) {
     $button_text = "Add to cart";
 }
 ?>
-<div class="one-product-container">
-    <div class="op-main">
-        <div class="op-img">
+<div class="middle-container">
+    <div class="one-product-container">
+        <div class="half-container center">
             <img onerror="this.src='uploads/noimage.png'" src='<?= $product->getImage() ?>' style='width:300px;'/>
-        </div>
-        <div class="op-desc">
-            <h4><?= $product->getCategory() ?></h4>
-            <h1><?= $product->getName() ?></h1>
-            <p><?= $product->getDescription() ?></p>
-            <div class="product-price">
-                <h4><span><strong>$<?= $product->getPrice() ?>.00</strong></span></h4>
-                <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button"
-                   class="<?= $block_add_to_cart ?> btn btn-labeled btn-success">
-                    <span class="btn-label"></span><?= $button_text ?></a>
-                <a href="index.php" type="button" class="btn btn-labeled btn-info">
-                    <span class="btn-label"></span>Back</a>
+            <div>
+                <h1><?= $product->getName() ?></h1>
+                <p><?= $product->getDescription() ?></p>
+                <div class="product-price">
+                    <h4><span><strong>$<?= $product->getPrice() ?></strong></span></h4>
+                </div>
             </div>
         </div>
+        <div class="edit-section">
+            <p><strong>Specifications: </strong></p>
+            <p><?= $product->getSpecification() ?></p>
+        </div>
     </div>
-    <div class="op-specs">
-        <p><strong>Specifications: </strong></p>
-        <p><?= $product->getSpecification() ?></p>
+    <div class="total-count-box">
+        <div class="center">
+            <a href="cart/add_to_cart.php?id=<?= $id ?>" type="button"
+               class="<?= $block_add_to_cart ?> count-box-link">
+                <span class="btn-label"></span><?= $button_text ?></a>
+            <a href="index.php" type="button" class="count-box-link">
+                Back</a>
+        </div>
     </div>
 </div>
-
 
